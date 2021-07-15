@@ -6,10 +6,9 @@ import dagger.Lazy
 import javax.inject.Inject
 
 /**
- * Generic class to inject view models
+ * Generic class to create and inject view models.
  */
 class ViewModelFactory<VM: ViewModel> @Inject constructor(private val viewModelLazy: Lazy<VM>) : ViewModelProvider.Factory {
 
     override fun <T : ViewModel?> create(modelClass: Class<T>): T = viewModelLazy.get() as T
-
 }
