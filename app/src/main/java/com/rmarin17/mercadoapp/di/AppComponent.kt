@@ -1,6 +1,6 @@
 package com.rmarin17.mercadoapp.di
 
-import com.rmarin17.mercadoapp.MercadoApp
+import com.rmarin17.mercadoapp.MercadoApplication
 import dagger.Component
 import dagger.android.AndroidInjectionModule
 import dagger.android.AndroidInjector
@@ -11,7 +11,7 @@ import javax.inject.Singleton
  */
 @Component(modules = [AppModule::class, AndroidInjectionModule::class])
 @Singleton
-interface AppComponent : AndroidInjector<MercadoApp> {
+interface AppComponent : AndroidInjector<MercadoApplication> {
 
     val homeComponentFactory: HomeComponent.Factory
 }
