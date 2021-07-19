@@ -2,6 +2,7 @@ package com.rmarin17.mercadoapp.di
 
 import com.rmarin17.mercadoapp.HomeActivity
 import com.rmarin17.mercadoapp.common.di.ActivityScope
+import com.rmarin17.mercadoapp.ui.search.SearchFragment
 import dagger.BindsInstance
 import dagger.Subcomponent
 
@@ -18,4 +19,5 @@ interface HomeComponent {
     }
 
     fun inject(activity: HomeActivity)
+    fun inject(fragment: SearchFragment)
 }

@@ -3,13 +3,14 @@
     package="com.rmarin17.mercadoapp">
 
     <application
+        android:name=".MercadoApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MercadoApp">
-        <activity android:name=".MainActivity">
+        <activity android:name=".HomeActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

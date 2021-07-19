@@ -11,7 +11,7 @@ import javax.inject.Inject
 /**
  * Application class for maintaining global application state.
  */
-class MercadoApp : Application(), HasAndroidInjector {
+class MercadoApplication : Application(), HasAndroidInjector {
 
     private lateinit var appComponent: AppComponent
 
@@ -20,9 +20,23 @@ class MercadoApp : Application(), HasAndroidInjector {
 
     override fun onCreate() {
         super.onCreate()
+        instance = this
         appComponent = DaggerAppComponent.create()
         appComponent.inject(this)
     }
 
     override fun androidInjector(): AndroidInjector<Any> = androidInjector
+
+    fun getAppComponent(): AppComponent {
+        return appComponent
+    }
+
+    companion object {
+        lateinit var instance: MercadoApplication
+            private set
+
+        fun applicationContext(): MercadoApplication {
+            return instance
+        }
+    }
 }
