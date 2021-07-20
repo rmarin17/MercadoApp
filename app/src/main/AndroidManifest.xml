@@ -2,6 +2,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rmarin17.mercadoapp">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:name=".MercadoApplication"
         android:allowBackup="true"

@@ -5,7 +5,9 @@ import com.rmarin17.mercadoapp.network.ApiConstants.URL_BASE
 import com.rmarin17.mercadoapp.network.ProductServices
 import dagger.Module
 import dagger.Provides
+import okhttp3.OkHttpClient
 import retrofit2.Retrofit
+import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Singleton
 
@@ -20,7 +22,9 @@ class AppModule {
     fun provideRetrofit(): Retrofit {
         return Retrofit.Builder()
             .addConverterFactory(GsonConverterFactory.create(GsonBuilder().create()))
+            .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
             .baseUrl(URL_BASE)
+            .client(OkHttpClient.Builder().build())
             .build()
     }
 

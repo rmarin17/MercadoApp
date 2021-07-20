@@ -1,6 +1,7 @@
 package com.rmarin17.mercadoapp.network
 
 import com.rmarin17.mercadoapp.network.ApiConstants.ITEM_DETAIL_SEARCH
+import com.rmarin17.mercadoapp.network.ApiConstants.PRODUCT_CATEGORY
 import com.rmarin17.mercadoapp.network.ApiConstants.PRODUCT_ID
 import com.rmarin17.mercadoapp.network.ApiConstants.QUERY
 import com.rmarin17.mercadoapp.network.ApiConstants.SEARCH_PATCH
@@ -23,5 +24,8 @@ interface ProductServices {
 
     @GET(ITEM_DETAIL_SEARCH)
     fun getProductById(@Path(PRODUCT_ID) productId: Int): Observable<ProductDetailResponseModel>
+
+    @GET(SEARCH_PATCH)
+    fun getProductsByCategory(@Path(SITE_ID) siteId: String, @Query(PRODUCT_CATEGORY) categoryId: String): Observable<ProductsResponseModel>
 
 }
