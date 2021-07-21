@@ -1,11 +1,14 @@
 package com.rmarin17.mercadoapp.ui.search
 
+import android.app.SearchManager
 import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.rmarin17.mercadoapp.R
 import com.rmarin17.mercadoapp.common.di.ViewModelFactory
 import com.rmarin17.mercadoapp.common.ext.activityInjector
 import com.rmarin17.mercadoapp.common.ext.getViewModel
@@ -13,6 +16,7 @@ import com.rmarin17.mercadoapp.common.ext.observe
 import com.rmarin17.mercadoapp.common.ext.visible
 import com.rmarin17.mercadoapp.common.observers.ActivityLifeCycleObserver
 import com.rmarin17.mercadoapp.databinding.FragmentSearchBinding
+import com.rmarin17.mercadoapp.ui.adapters.ListProductsAdapter
 import javax.inject.Inject
 
 /**
@@ -26,6 +30,10 @@ class SearchFragment : Fragment() {
     private val viewModel by lazy { getViewModel<ProductSearchViewModel>(viewModelFactory) }
 
     private lateinit var binding: FragmentSearchBinding
+
+    private lateinit var productsAdapter: ListProductsAdapter
+
+    private val searchQuery by lazy { arguments?.getString(SEAR_QUERY) }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,9 +52,30 @@ class SearchFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpView()
         setUpObservers()
         lifecycle.addObserver(viewModel)
-        viewModel.getDefaultProducts()
+        searchQuery?.let {
+            // TODO - Search products by query
+        } ?: viewModel.getDefaultProducts()
+    }
+
+    private fun setUpView() {
+        with(binding) {
+            productsAdapter = ListProductsAdapter(mutableListOf(), ::onClickItem)
+            productsRecycler.layoutManager = LinearLayoutManager(context)
+            productsRecycler.adapter = productsAdapter
+            val searchManager =
+                requireActivity().getSystemService(Context.SEARCH_SERVICE) as SearchManager
+            searchView.apply {
+                setSearchableInfo(searchManager.getSearchableInfo(requireActivity().componentName))
+                queryHint = resources.getString(R.string.query_hint_search)
+                isQueryRefinementEnabled = true
+            }
+            searchQuery?.let {
+                searchView.setQuery(it, false)
+            }
+        }
     }
 
     private fun setUpObservers() {
@@ -55,12 +84,36 @@ class SearchFragment : Fragment() {
 
     private fun onSearchState(state: ProductSearchState) {
         when (state) {
-            is ProductSearchState.Loading -> showLoadingView()
+            is ProductSearchState.Loading -> showHideLoadingView(true)
+            is ProductSearchState.ProductResultSuccess -> {
+                showHideLoadingView(false)
+                if (state.products.isNotEmpty()) {
+                    productsAdapter.updateProductList(state.products)
+                } else {
+                    binding.emptyView.visible()
+                }
+            }
+            is ProductSearchState.ProductResultFailure -> showFailureErrorView()
         }
     }
 
-    private fun showLoadingView() {
-        binding.progressBar.visible()
-        binding.productsRecycler.visible(false)
+    private fun onClickItem(productId: String) {
+        // TODO - Implement navigation to detail view.
+    }
+
+    private fun showHideLoadingView(isVisible: Boolean) {
+        binding.emptyView.visible(false)
+        binding.errorView.visible(false)
+        binding.progressBar.visible(isVisible)
+        binding.productsRecycler.visible(!isVisible)
+    }
+
+    private fun showFailureErrorView() {
+        showHideLoadingView(false)
+        binding.errorView.visible()
+    }
+
+    companion object {
+        const val SEAR_QUERY = "search_query"
     }
 }

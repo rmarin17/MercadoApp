@@ -1,8 +1,10 @@
 package com.rmarin17.mercadoapp.di
 
 import com.google.gson.GsonBuilder
-import com.rmarin17.mercadoapp.network.ApiConstants.URL_BASE
-import com.rmarin17.mercadoapp.network.ProductServices
+import com.rmarin17.mercadoapp.common.logger.Logger
+import com.rmarin17.mercadoapp.common.logger.LoggerImpl
+import com.rmarin17.mercadoapp.data.network.ApiConstants.URL_BASE
+import com.rmarin17.mercadoapp.data.network.ProductServices
 import dagger.Module
 import dagger.Provides
 import okhttp3.OkHttpClient
@@ -33,4 +35,7 @@ class AppModule {
     fun provideProductsService(retrofit: Retrofit): ProductServices {
         return retrofit.create(ProductServices::class.java)
     }
+
+    @Provides
+    fun provideLogger(loggerImpl: LoggerImpl): Logger = loggerImpl
 }

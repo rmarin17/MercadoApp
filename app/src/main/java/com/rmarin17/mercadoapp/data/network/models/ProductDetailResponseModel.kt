@@ -1,4 +1,4 @@
-package com.rmarin17.mercadoapp.network.models
+package com.rmarin17.mercadoapp.data.network.models
 
 import com.google.gson.annotations.SerializedName
 import com.rmarin17.mercadoapp.ui.models.ProductListUiModel
@@ -11,7 +11,7 @@ data class ProductDetailResponseModel(
     @SerializedName("site_id") val siteId: String,
     @SerializedName("title") val title: String,
     @SerializedName("seller") val seller: SellerResponseModel,
-    @SerializedName("price") val price: String,
+    @SerializedName("price") val price: Int,
     @SerializedName("currency_id") val currencyId: String,
     @SerializedName("available_quantity") val availableQuantity: Int,
     @SerializedName("condition") val condition: String,
@@ -24,7 +24,8 @@ data class ProductDetailResponseModel(
             id = id,
             title = title,
             image = thumbnail,
-            price = price
+            price = price,
+            currency = currencyId
         )
     }
 }

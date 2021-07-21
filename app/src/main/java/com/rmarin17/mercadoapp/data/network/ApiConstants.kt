@@ -1,4 +1,4 @@
-package com.rmarin17.mercadoapp.network
+package com.rmarin17.mercadoapp.data.network
 
 /**
  * Constants of the api service.

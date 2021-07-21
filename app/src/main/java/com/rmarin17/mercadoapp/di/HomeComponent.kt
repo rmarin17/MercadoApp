@@ -1,6 +1,6 @@
 package com.rmarin17.mercadoapp.di
 
-import com.rmarin17.mercadoapp.HomeActivity
+import com.rmarin17.mercadoapp.ui.home.HomeActivity
 import com.rmarin17.mercadoapp.common.di.ActivityScope
 import com.rmarin17.mercadoapp.ui.search.SearchFragment
 import dagger.BindsInstance
