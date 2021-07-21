@@ -1,13 +1,13 @@
-package com.rmarin17.mercadoapp.network
+package com.rmarin17.mercadoapp.data.network
 
-import com.rmarin17.mercadoapp.network.ApiConstants.ITEM_DETAIL_SEARCH
-import com.rmarin17.mercadoapp.network.ApiConstants.PRODUCT_CATEGORY
-import com.rmarin17.mercadoapp.network.ApiConstants.PRODUCT_ID
-import com.rmarin17.mercadoapp.network.ApiConstants.QUERY
-import com.rmarin17.mercadoapp.network.ApiConstants.SEARCH_PATCH
-import com.rmarin17.mercadoapp.network.ApiConstants.SITE_ID
-import com.rmarin17.mercadoapp.network.models.ProductDetailResponseModel
-import com.rmarin17.mercadoapp.network.models.ProductsResponseModel
+import com.rmarin17.mercadoapp.data.network.ApiConstants.ITEM_DETAIL_SEARCH
+import com.rmarin17.mercadoapp.data.network.ApiConstants.PRODUCT_CATEGORY
+import com.rmarin17.mercadoapp.data.network.ApiConstants.PRODUCT_ID
+import com.rmarin17.mercadoapp.data.network.ApiConstants.QUERY
+import com.rmarin17.mercadoapp.data.network.ApiConstants.SEARCH_PATCH
+import com.rmarin17.mercadoapp.data.network.ApiConstants.SITE_ID
+import com.rmarin17.mercadoapp.data.network.models.ProductDetailResponseModel
+import com.rmarin17.mercadoapp.data.network.models.ProductsResponseModel
 import io.reactivex.rxjava3.core.Observable
 import retrofit2.http.GET
 import retrofit2.http.Path

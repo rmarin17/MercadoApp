@@ -1,6 +1,6 @@
 package com.rmarin17.mercadoapp.domain.interactors
 
-import com.rmarin17.mercadoapp.network.ProductServices
+import com.rmarin17.mercadoapp.data.network.ProductServices
 import com.rmarin17.mercadoapp.ui.models.ProductListUiModel
 import io.reactivex.rxjava3.core.Single
 import javax.inject.Inject

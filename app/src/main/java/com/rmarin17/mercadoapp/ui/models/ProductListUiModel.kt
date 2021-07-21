@@ -7,5 +7,6 @@ data class ProductListUiModel(
     val id: String,
     val title: String,
     val image: String,
-    val price: String,
+    val price: Int,
+    val currency: String
 )

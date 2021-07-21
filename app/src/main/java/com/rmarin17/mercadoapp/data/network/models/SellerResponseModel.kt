@@ -1,4 +1,4 @@
-package com.rmarin17.mercadoapp.network.models
+package com.rmarin17.mercadoapp.data.network.models
 
 import com.google.gson.annotations.SerializedName
 
