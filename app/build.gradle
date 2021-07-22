@@ -74,7 +74,7 @@ dependencies {
     implementation "com.squareup.okhttp3:okhttp:$ok_http_version"
     testImplementation "com.squareup.okhttp3:mockwebserver:$ok_http_version"
 
-    //RX Java
+    // RX Java
     implementation "io.reactivex.rxjava3:rxandroid:$rxjava3_version"
     implementation "io.reactivex.rxjava3:rxjava:$rxjava3_version"
 
