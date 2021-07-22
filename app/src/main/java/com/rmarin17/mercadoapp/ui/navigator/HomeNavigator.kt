@@ -1,4 +1,4 @@
-package com.rmarin17.mercadoapp.ui.home
+package com.rmarin17.mercadoapp.ui.navigator
 
 import com.rmarin17.mercadoapp.ui.models.ProductUiModel
 

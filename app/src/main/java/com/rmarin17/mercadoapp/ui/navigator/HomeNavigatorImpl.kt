@@ -1,4 +1,4 @@
-package com.rmarin17.mercadoapp.ui.home
+package com.rmarin17.mercadoapp.ui.navigator
 
 import android.app.Activity
 import androidx.core.os.bundleOf
@@ -8,6 +8,7 @@ import com.rmarin17.mercadoapp.common.ext.findNavController
 import com.rmarin17.mercadoapp.common.ext.navigateSafe
 import com.rmarin17.mercadoapp.common.ext.performActionWithSafeActivity
 import com.rmarin17.mercadoapp.ui.detail.DetailProductFragment.Companion.PRODUCT_DETAIL
+import com.rmarin17.mercadoapp.ui.home.HomeActivity
 import com.rmarin17.mercadoapp.ui.models.ProductUiModel
 import com.rmarin17.mercadoapp.ui.search.SearchFragment.Companion.SEAR_QUERY
 import java.lang.ref.WeakReference
