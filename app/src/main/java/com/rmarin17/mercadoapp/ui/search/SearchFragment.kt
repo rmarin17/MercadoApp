@@ -83,7 +83,10 @@ class SearchFragment : Fragment() {
 
     private fun onSearchState(state: ProductSearchState) {
         when (state) {
-            is ProductSearchState.Loading -> showHideLoadingView(true)
+            is ProductSearchState.Loading -> {
+                showHideLoadingView(true)
+                state.loadedAction.invoke()
+            }
             is ProductSearchState.ProductResultSuccess -> {
                 showHideLoadingView(false)
                 if (state.products.isNotEmpty()) {

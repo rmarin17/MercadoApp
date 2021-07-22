@@ -1,7 +1,7 @@
 package com.rmarin17.mercadoapp.di
 
-import com.rmarin17.mercadoapp.ui.home.HomeNavigator
-import com.rmarin17.mercadoapp.ui.home.HomeNavigatorImpl
+import com.rmarin17.mercadoapp.ui.navigator.HomeNavigator
+import com.rmarin17.mercadoapp.ui.navigator.HomeNavigatorImpl
 import com.rmarin17.mercadoapp.domain.interactors.FetchProductsInteractor
 import com.rmarin17.mercadoapp.domain.interactors.FetchProductsInteractorImpl
 import dagger.Binds

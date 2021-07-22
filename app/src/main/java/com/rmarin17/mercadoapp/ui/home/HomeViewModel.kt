@@ -1,6 +1,7 @@
 package com.rmarin17.mercadoapp.ui.home
 
 import com.rmarin17.mercadoapp.common.BaseViewModel
+import com.rmarin17.mercadoapp.ui.navigator.HomeNavigator
 import javax.inject.Inject
 
 /**
