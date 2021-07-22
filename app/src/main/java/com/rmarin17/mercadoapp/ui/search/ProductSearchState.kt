@@ -1,6 +1,6 @@
 package com.rmarin17.mercadoapp.ui.search
 
-import com.rmarin17.mercadoapp.ui.models.ProductListUiModel
+import com.rmarin17.mercadoapp.ui.models.ProductUiModel
 
 /**
  * Class to handle the different states of the SearchFragment.
@@ -8,5 +8,5 @@ import com.rmarin17.mercadoapp.ui.models.ProductListUiModel
 sealed class ProductSearchState {
     object Loading : ProductSearchState()
     object ProductResultFailure : ProductSearchState()
-    data class ProductResultSuccess(val products: List<ProductListUiModel>) : ProductSearchState()
+    data class ProductResultSuccess(val products: List<ProductUiModel>) : ProductSearchState()
 }

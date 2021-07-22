@@ -17,6 +17,7 @@ import com.rmarin17.mercadoapp.common.ext.visible
 import com.rmarin17.mercadoapp.common.observers.ActivityLifeCycleObserver
 import com.rmarin17.mercadoapp.databinding.FragmentSearchBinding
 import com.rmarin17.mercadoapp.ui.adapters.ListProductsAdapter
+import com.rmarin17.mercadoapp.ui.models.ProductUiModel
 import javax.inject.Inject
 
 /**
@@ -55,9 +56,7 @@ class SearchFragment : Fragment() {
         setUpView()
         setUpObservers()
         lifecycle.addObserver(viewModel)
-        searchQuery?.let {
-            // TODO - Search products by query
-        } ?: viewModel.getDefaultProducts()
+        searchQueryOrGetDefaultProduct()
     }
 
     private fun setUpView() {
@@ -97,8 +96,14 @@ class SearchFragment : Fragment() {
         }
     }
 
-    private fun onClickItem(productId: String) {
-        // TODO - Implement navigation to detail view.
+    private fun searchQueryOrGetDefaultProduct() {
+        searchQuery?.let {
+            viewModel.searchProductsByQuery(it)
+        } ?: viewModel.getDefaultProducts()
+    }
+
+    private fun onClickItem(product: ProductUiModel) {
+        viewModel.navigateToProductDetail(product)
     }
 
     private fun showHideLoadingView(isVisible: Boolean) {
@@ -111,6 +116,9 @@ class SearchFragment : Fragment() {
     private fun showFailureErrorView() {
         showHideLoadingView(false)
         binding.errorView.visible()
+        binding.errorView.errorViewRetryButton.setOnClickListener {
+            searchQueryOrGetDefaultProduct()
+        }
     }
 
     companion object {

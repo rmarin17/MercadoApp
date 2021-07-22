@@ -15,7 +15,7 @@ import com.rmarin17.mercadoapp.R
 fun ImageView.displayImage(url: String) {
     Glide.with(this)
         .load(url)
-        .centerCrop()
+        .fitCenter()
         .placeholder(R.drawable.ic_default_product_image)
         .error(R.drawable.ic_broken_image)
         .diskCacheStrategy(DiskCacheStrategy.ALL)

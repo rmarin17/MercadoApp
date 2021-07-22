@@ -31,13 +31,37 @@
     <dimen name="search_rounded_background_padding">12dp</dimen>
     <dimen name="search_rounded_background_radius">8dp</dimen>
     <dimen name="search_rounded_background_stroke_width">1dp</dimen>
+
+    <!-- Empty View -->
     <dimen name="empty_view_image_dimen">300dp</dimen>
     <dimen name="empty_view_image_margin">24dp</dimen>
     <dimen name="empty_view_title_text_size">18sp</dimen>
+
+    <!-- Error View -->
     <dimen name="error_view_image_dimen">300dp</dimen>
     <dimen name="error_view_image_margin_top">24dp</dimen>
     <dimen name="empty_view_title_margin_top">16dp</dimen>
     <dimen name="error_view_title_margin_top">16dp</dimen>
     <dimen name="error_view_title_text_size">18sp</dimen>
     <dimen name="error_view_retry_button_margin_top">24dp</dimen>
+
+    <!-- Product Detail -->
+    <dimen name="product_detail_title_text_size">24sp</dimen>
+    <dimen name="product_detail_title_margin">16dp</dimen>
+    <dimen name="product_detail_condition_sold_margin_start">16dp</dimen>
+    <dimen name="product_detail_condition_sold_margin_top">4dp</dimen>
+    <dimen name="product_detail_condition_sold_text_size">14sp</dimen>
+    <dimen name="product_detail_image_height">300dp</dimen>
+    <dimen name="product_detail_image_margin">16dp</dimen>
+    <dimen name="product_detail_image_margin_top">8dp</dimen>
+    <dimen name="product_detail_stock_margin">16dp</dimen>
+    <dimen name="product_detail_stock_margin_top">8dp</dimen>
+    <dimen name="product_detail_buy_button_margin">24dp</dimen>
+    <dimen name="product_detail_stock_quantity_margin">4dp</dimen>
+    <dimen name="product_detail_shipping_margin">16dp</dimen>
+    <dimen name="product_detail_shipping_margin_top">8dp</dimen>
+    <dimen name="product_detail_shipping_text_size">14sp</dimen>
+    <dimen name="product_detail_price_margin">16dp</dimen>
+    <dimen name="product_detail_price_margin_top">8dp</dimen>
+    <dimen name="product_detail_price_text_size">18sp</dimen>
 </resources>

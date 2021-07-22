@@ -1,6 +1,6 @@
 package com.rmarin17.mercadoapp.domain.interactors
 
-import com.rmarin17.mercadoapp.ui.models.ProductListUiModel
+import com.rmarin17.mercadoapp.ui.models.ProductUiModel
 import io.reactivex.rxjava3.core.Single
 
 /**
@@ -8,5 +8,6 @@ import io.reactivex.rxjava3.core.Single
  */
 interface FetchProductsInteractor {
 
-    fun getDefaultsProducts(): Single<List<ProductListUiModel>>
+    fun getDefaultsProducts(): Single<List<ProductUiModel>>
+    fun getProductsByQuery(query: String) : Single<List<ProductUiModel>>
 }
