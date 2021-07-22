@@ -56,7 +56,7 @@ class SearchFragment : Fragment() {
         setUpView()
         setUpObservers()
         lifecycle.addObserver(viewModel)
-        searchQueryOrDefaultProduct()
+        searchQueryOrGetDefaultProduct()
     }
 
     private fun setUpView() {
@@ -96,7 +96,7 @@ class SearchFragment : Fragment() {
         }
     }
 
-    private fun searchQueryOrDefaultProduct() {
+    private fun searchQueryOrGetDefaultProduct() {
         searchQuery?.let {
             viewModel.searchProductsByQuery(it)
         } ?: viewModel.getDefaultProducts()
@@ -117,7 +117,7 @@ class SearchFragment : Fragment() {
         showHideLoadingView(false)
         binding.errorView.visible()
         binding.errorView.errorViewRetryButton.setOnClickListener {
-            searchQueryOrDefaultProduct()
+            searchQueryOrGetDefaultProduct()
         }
     }
 
