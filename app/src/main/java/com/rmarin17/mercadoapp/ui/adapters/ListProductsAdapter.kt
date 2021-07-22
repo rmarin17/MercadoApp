@@ -5,14 +5,14 @@ import androidx.recyclerview.widget.RecyclerView
 import com.rmarin17.mercadoapp.R
 import com.rmarin17.mercadoapp.common.ext.inflate
 import com.rmarin17.mercadoapp.ui.adapters.viewholders.ListProductsViewHolder
-import com.rmarin17.mercadoapp.ui.models.ProductListUiModel
+import com.rmarin17.mercadoapp.ui.models.ProductUiModel
 
 /**
  * Adapter for list products.
  */
 class ListProductsAdapter(
-    private val products: MutableList<ProductListUiModel>,
-    private val onItemClick: (String) -> Unit
+    private val products: MutableList<ProductUiModel>,
+    private val onItemClick: (ProductUiModel) -> Unit
 ) : RecyclerView.Adapter<ListProductsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListProductsViewHolder {
@@ -30,7 +30,7 @@ class ListProductsAdapter(
         return products.size
     }
 
-    fun updateProductList(listProducts: List<ProductListUiModel>) {
+    fun updateProductList(listProducts: List<ProductUiModel>) {
         products.clear()
         products.addAll(listProducts)
         notifyDataSetChanged()

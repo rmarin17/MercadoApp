@@ -1,7 +1,8 @@
 package com.rmarin17.mercadoapp.data.network.models
 
 import com.google.gson.annotations.SerializedName
-import com.rmarin17.mercadoapp.ui.models.ProductListUiModel
+import com.rmarin17.mercadoapp.common.ext.fixUrl
+import com.rmarin17.mercadoapp.ui.models.ProductUiModel
 
 /**
  * Data class to handle the product response.
@@ -17,15 +18,22 @@ data class ProductDetailResponseModel(
     @SerializedName("condition") val condition: String,
     @SerializedName("thumbnail") val thumbnail: String,
     @SerializedName("shipping") val shipping: ShippingResponseModel,
-    @SerializedName("address") val address: AddressResultModel
+    @SerializedName("address") val address: AddressResultModel,
+    @SerializedName("sold_quantity") val soldQuantity: Int,
+    @SerializedName("permalink") val linkProduct: String
 ) {
-    fun transformToProductListUiModel(): ProductListUiModel {
-        return ProductListUiModel(
+    fun transformToProductListUiModel(): ProductUiModel {
+        return ProductUiModel(
             id = id,
             title = title,
-            image = thumbnail,
+            image = thumbnail.fixUrl(),
             price = price,
-            currency = currencyId
+            currency = currencyId,
+            condition = condition,
+            soldQuantity = soldQuantity,
+            availableQuantity = availableQuantity,
+            isFreeShipping = shipping.freeShipping,
+            linkProduct = linkProduct
         )
     }
 }

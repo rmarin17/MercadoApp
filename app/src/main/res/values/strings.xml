@@ -1,7 +1,16 @@
 <resources>
     <string name="app_name">Mercado App</string>
+    <!-- List Products -->
     <string name="query_hint_search">Search over thousands of products!</string>
+    <!-- Empty View-->
     <string name="empty_view_title_text">Sorry, we didn\'t find any results to your search, please try another search</string>
+    <!-- Error View -->
     <string name="error_view_title_text">Sorry, there was an error processing your request, please try again.</string>
     <string name="error_view_retry_button_text">Retry</string>
+    <!-- Product Detail -->
+    <string name="product_detail_shipping_text">Free Shipping</string>
+    <string name="product_detail_stock_text">Stock:</string>
+    <string name="product_detail_buy_button_text">Buy</string>
+    <string name="product_detail_condition_sold_items">%1s | %2d sold</string>
+    <string name="product_detail_stock_items">%d items</string>
 </resources>
